@@ -16,10 +16,10 @@ plugins {
 }
 
 android {
-      namespace = "com.adobe.placestestapp"
+      namespace = "com.adobe.marketing.optimizeapp"
 
     defaultConfig {
-        applicationId = "com.adobe.placestestapp"
+        applicationId = "com.adobe.marketing.optimizeapp"
         compileSdk = BuildConstants.Versions.COMPILE_SDK_VERSION
         minSdk = BuildConstants.Versions.MIN_SDK_VERSION
         targetSdk = BuildConstants.Versions.TARGET_SDK_VERSION
