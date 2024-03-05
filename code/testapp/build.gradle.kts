@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":places"))
+    implementation(project(":optimize"))
     implementation("com.adobe.marketing.mobile:core:2.+")
     implementation("com.adobe.marketing.mobile:assurance:2.+")
     implementation("com.adobe.marketing.mobile:edge:2.+")
