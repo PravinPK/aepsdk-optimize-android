@@ -15,6 +15,8 @@ plugins {
     id("com.android.application")
 }
 
+val mavenCoreVersion: String by project
+
 android {
       namespace = "com.adobe.marketing.optimizeapp"
 
@@ -36,13 +38,35 @@ android {
 
 dependencies {
     implementation(project(":optimize"))
-    implementation("com.adobe.marketing.mobile:core:2.+")
-    implementation("com.adobe.marketing.mobile:assurance:2.+")
-    implementation("com.adobe.marketing.mobile:edge:2.+")
+    implementation("com.adobe.marketing.mobile:core:$mavenCoreVersion-SNAPSHOT")
+    implementation("com.adobe.marketing.mobile:edgeidentity:3.0.0-SNAPSHOT") {
+        exclude(group = "com.adobe.marketing.mobile", module = "core")
+    }
+    implementation("com.adobe.marketing.mobile:edge:3.0.0-SNAPSHOT") {
+        exclude(group = "com.adobe.marketing.mobile", module = "core")
+        exclude(group = "com.adobe.marketing.mobile", module = "edgeidentity")
+    }
+    implementation("com.adobe.marketing.mobile:assurance:3.0.0-SNAPSHOT") {
+        exclude(group = "com.adobe.marketing.mobile", module = "core")
+    }
+    implementation ("com.adobe.marketing.mobile:lifecycle:3.0.0-SNAPSHOT") {
+        exclude(group = "com.adobe.marketing.mobile", module = "core")
+    }
 
-    implementation("com.google.android.gms:play-services-location:21.1.0")
-    implementation("com.google.android.gms:play-services-maps:18.2.0")
-
-    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.annotation:annotation:1.7.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.compose.ui:ui:1.6.2")
+    implementation("androidx.compose.material:material:1.6.2")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.6.2")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha13")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("io.coil-kt:coil-compose:1.3.2")
 }

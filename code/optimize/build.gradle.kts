@@ -29,6 +29,10 @@ aepLibrary {
 dependencies {
     implementation("com.adobe.marketing.mobile:core:$mavenCoreVersion-SNAPSHOT")
 
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.12.7")
+
+    androidTestImplementation("com.fasterxml.jackson.core:jackson-databind:2.12.7")
+
     // testImplementation dependencies provided by aep-library:
     // MOCKITO_CORE, MOCKITO_INLINE, JSON
 

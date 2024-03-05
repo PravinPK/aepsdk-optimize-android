@@ -12,8 +12,6 @@
 
 package com.adobe.marketing.mobile.optimize;
 
-import android.app.Service;
-
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 

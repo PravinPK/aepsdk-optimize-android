@@ -20,6 +20,7 @@ import com.adobe.marketing.mobile.services.Log;
 import com.adobe.marketing.mobile.util.DataReader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,12 +49,15 @@ public class MonitorExtension extends Extension {
     }
 
     public static void registerExtension() {
-        MobileCore.registerExtension(MonitorExtension.class, extensionError -> {
-            if (extensionError == null) {
-                return;
+
+        List<Class<? extends Extension>> extensions = Arrays.asList(
+                MonitorExtension.class
+        );
+        MobileCore.registerExtensions(extensions, new AdobeCallback<Object>() {
+            @Override
+            public void call(Object o) {
+
             }
-            Log.error(OptimizeTestConstants.LOG_TAG, SELF_TAG,
-                    "An error occurred while registering the Optimize extension: %s ", extensionError.getErrorName());
         });
     }
 
